@@ -1,8 +1,12 @@
-let peso = 147;
-let altura = 1.84;
+const button = document.getElementById("button"),
+  pesoInput = document.getElementById("peso"),
+  alturaInput = document.getElementById("altura");
 
-const imc = peso / (altura * altura);
+button.addEventListener("click", function (event) {
+  event.preventDefault();
+  const peso = parseFloat(pesoInput.value),
+    altura = parseFloat(alturaInput.value),
+    imc = peso / (altura * altura);
 
-console.log(`Seu IMC é: ${imc}`);
-
-document.write(`Seu IMC é ${imc} kg/m².`);
+  alert(`Seu IMC é ${imc.toFixed(2)} kg/m².`);
+});

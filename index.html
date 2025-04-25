@@ -1,15 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript - IMC</title>
+  <title>Calculadora de IMC</title>
+
+  <link rel="icon" href="./assets/img/calculator.svg" type="image/svg">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Tailwind CSS e DaisyUI via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Phosphor Icons via CDN - Usando importação direta dos ícones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+
 </head>
 
 <body>
-  <h1>Professor Luan do PDD:</h1>
+  <!-- Container principal -->
+  <div class="animated-bg min-h-screen flex items-center justify-center p-4">
 
+    <!-- Card de login -->
+    <div class="card w-full max-w-md bg-base-100 shadow-xl">
+      <!-- Alternador de tema (dark/light) - Implementação corrigida -->
+      <div class="absolute top-4 right-4">
+        <button onclick="document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" class="theme-toggle btn btn-sm btn-circle btn-ghost" aria-label="Alternar tema">
+          <i class="ph-bold ph-sun light-icon text-xl"></i>
+          <i class="ph-bold ph-moon dark-icon text-xl"></i>
+        </button>
+      </div>
+
+      <div class="card-body p-8">
+        <!-- Cabeçalho do formulário -->
+        <h1 class="text-3xl font-bold text-center mb-6">Calculadora de IMC</h1>
+
+        <!-- Formulário da calculadora -->
+        <form>
+          <div class="form-control mb-4 relative">
+            <label for="altura" class="label">
+              <span class="label-text">Peso:</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <i class="ph-bold ph-scales text-lg opacity-70"></i>
+              </span>
+              <input type="text" id="peso" placeholder="Seu peso" class="input input-bordered w-full pl-10" required aria-label="Digite seu peso" autofocus />
+            </div>
+          </div>
+
+          <div class="form-control mb-2 relative">
+            <label for="altura" class="label">
+              <span class="label-text">Altura:</span>
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <i class="ph-bold ph-ruler text-lg opacity-70"></i>
+              </span>
+              <input type="text" id="altura" placeholder="Sua altura" class="input input-bordered w-full pl-10" required aria-label="Digite sua altura" />
+            </div>
+          </div>
+
+          <div class="form-control">
+            <button type="button" id="button" class="btn btn-primary w-full mt-4" aria-label="Calcular IMC">
+              Calcular
+              <i class="ph-bold ph-arrow-right ml-1"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
   <script src="./js/script.js"></script>
 </body>
 

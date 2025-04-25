@@ -1,0 +1,61 @@
+body {
+  font-family: "new courier", monospace;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+
+/* Animação de gradiente para o fundo */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #1e293b, #0f172a, #312e81, #1e3a8a);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+/* Melhorias de acessibilidade para foco */
+input:focus,
+a:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+button:focus {
+  outline-offset: 2px;
+}
+
+/* Correção para o alternador de tema */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="light"] .dark-icon {
+  display: none;
+}
+
+html[data-theme="dark"] .light-icon {
+  display: none;
+}
